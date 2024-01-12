@@ -1,9 +1,14 @@
 import { fastify } from "fastify";
+import cors from '@fastify/cors'
 
 const server = fastify()
 
-server.get('/', () => {
-    return 'Hello'
+server.register(cors, { 
+    origin: '*'
+  })
+
+server.get('/', (request, reply) => {
+    return reply.send(JSON.stringify({nome: 'Luiz'}))
 })
 
 server.listen({
