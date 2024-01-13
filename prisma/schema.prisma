@@ -43,20 +43,29 @@ model Colaboradores {
 }
 
 model Cupom {
-  id         String @id @default(uuid())
-  id_servico String
-  ativo      String
+  id           String @id @default(uuid())
+  codigo_cupom String @unique
+  id_servico   String
+  ativo        String
 
   @@map("cupom")
 }
 
 model Servicos {
-  id        String @id @default(uuid())
-  descricao String
-  valor     String
-  duracao   String
+  id                   String @id @default(uuid())
+  id_categoria_servico String
+  descricao            String
+  valor                String
+  duracao              String
 
   @@map("servicos")
+}
+
+model Categoria_Servicos {
+  id        String @id @default(uuid())
+  descricao String
+
+  @@map("categoria_servicos")
 }
 
 model Agendamento {
