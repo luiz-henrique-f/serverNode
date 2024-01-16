@@ -51,7 +51,7 @@ server.get('/loginGestao/:username', async (request: any, reply: any) => {
         return;
     }
 
-    return reply.header('Content-Type', 'application/json; charset=utf-8').send(user)
+    return user;
 });
 
 server.listen({
