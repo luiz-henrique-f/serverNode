@@ -20,7 +20,8 @@ server.post('/createUserGestao', async (request: any, response: any) => {
     const body = request.body
 
     const userExisting = await prisma.user.findUnique({
-        where: { email: body.email }
+        where: { email: body.email },
+        select: {email: true}
     })
 
     if (userExisting) {
