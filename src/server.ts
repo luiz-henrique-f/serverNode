@@ -48,7 +48,7 @@ server.get('/loginGestao/:username', async (request: any, response: any) => {
     // response.code(409).header('Content-Type', 'application/json; charset=utf-8').send({ message: 'User not exists.' })
 
     if (!user) {
-        return response.code(409).header('Content-Type', 'application/json; charset=utf-8').send({ message: 'User not exists.' });
+        return;
     }
 
     return response.header('Content-Type', 'application/json; charset=utf-8').send(user)
