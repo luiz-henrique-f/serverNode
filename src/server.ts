@@ -38,20 +38,20 @@ server.post('/createUserGestao', async (request: any, response: any) => {
     return response.code(201).header('Content-Type', 'application/json; charset=utf-8').send(create)
 });
 
-server.get('/loginGestao/:username', async (request: any, response: any) => {
+server.get('/loginGestao/:username', async (request: any, reply: any) => {
     const username = request.params.username;
 
     const user = await prisma.user.findUnique({
         where: { email: username }
     })
 
-    // response.code(409).header('Content-Type', 'application/json; charset=utf-8').send({ message: 'User not exists.' })
+    // reply.code(409).header('Content-Type', 'application/json; charset=utf-8').send({ message: 'User not exists.' })
 
     if (!user) {
         return;
     }
 
-    return response.header('Content-Type', 'application/json; charset=utf-8').send(user)
+    return reply.header('Content-Type', 'application/json; charset=utf-8').send(user)
 });
 
 server.listen({
