@@ -12,12 +12,12 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  password      String
-  emailVerified DateTime?
-  image         String?
+  id       String  @id @default(cuid())
+  name     String?
+  email    String? @unique
+  password String
+  // emailVerified DateTime?
+  // image         String?
 }
 
 model Clientes {
@@ -26,8 +26,6 @@ model Clientes {
   celular    String
   sexo       String
   created_at DateTime @default(now())
-
-  @@map("clientes")
 }
 
 model Colaboradores {
@@ -36,8 +34,6 @@ model Colaboradores {
   celular    String
   foto       String
   created_at DateTime @default(now())
-
-  @@map("colaboradores")
 }
 
 model Cupom {
@@ -45,8 +41,6 @@ model Cupom {
   codigo_cupom String @unique
   id_servico   String
   ativo        String
-
-  @@map("cupom")
 }
 
 model Servicos {
@@ -55,15 +49,11 @@ model Servicos {
   descricao            String
   valor                String
   duracao              String
-
-  @@map("servicos")
 }
 
 model Categoria_Servicos {
   id        String @id @default(uuid())
   descricao String
-
-  @@map("categoria_servicos")
 }
 
 model Agendamento {
@@ -76,6 +66,4 @@ model Agendamento {
   hora_final      String
   forma_pagamento String
   status          String
-
-  @@map("agendamento")
 }
