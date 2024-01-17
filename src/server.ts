@@ -42,7 +42,7 @@ server.post('/createUserGestao', async (request: any, response: any) => {
     //     }
     // })
 
-    return response.code(201).header('Content-Type', 'application/json; charset=utf-8').send({ message: 'User already exists.' })
+    return response.code(201).header('Content-Type', 'application/json; charset=utf-8').send(create)
 });
 
 server.get('/loginGestao/:username', async (request: any, reply: any) => {
