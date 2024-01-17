@@ -30,12 +30,14 @@ server.post('/createUserGestao', async (request: any, response: any) => {
 
     const create = await prisma.$queryRaw`INSERT INTO "public"."User"
                                                  (
-                                                    "public"."User"."email"
+                                                    "public"."User"."id"
+                                                  , "public"."User"."email"
                                                   , "public"."User"."name"
                                                   , "public"."User"."password"
                                                  )
                                            VALUES(
-                                                    ${body.email}
+                                                    '1b'
+                                                  , ${body.email}
                                                   , ${body.name}
                                                   , ${body.password}
                                                  )`
