@@ -28,6 +28,12 @@ server.post('/createUserGestao', async (request: any, response: any) => {
         return response.code(409).header('Content-Type', 'application/json; charset=utf-8').send({ message: 'User already exists.' })
     }
 
+    const create = await prisma.categoria_Servicos.create({
+        data: {
+            descricao: body.email
+        }
+    })
+
     // const create = await prisma.user.create({
     //     data: {
     //         email: body.email,
