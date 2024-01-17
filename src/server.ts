@@ -28,15 +28,15 @@ server.post('/createUserGestao', async (request: any, response: any) => {
         return response.code(409).header('Content-Type', 'application/json; charset=utf-8').send({ message: 'User already exists.' })
     }
 
-    const create = await prisma.user.create({
-        data: {
-            email: body.email,
-            name: body.name,
-            password: body.password,
-        }
-    })
+    // const create = await prisma.user.create({
+    //     data: {
+    //         email: body.email,
+    //         name: body.name,
+    //         password: body.password,
+    //     }
+    // })
 
-    return response.code(201).header('Content-Type', 'application/json; charset=utf-8').send(create)
+    return response.code(201).header('Content-Type', 'application/json; charset=utf-8').send({ message: 'User already exists.' })
 });
 
 server.get('/loginGestao/:username', async (request: any, reply: any) => {
