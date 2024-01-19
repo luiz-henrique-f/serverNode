@@ -19,7 +19,7 @@ server.get('/', (request, reply) => {
 server.post('/createUserGestao', async (request: any, response: any) => {
     const body = request.body
 
-    const userExisting = await prisma.usuarios.findUnique({
+    const userExisting = await prisma.user.findUnique({
         where: { email: body.email }
     })
 
@@ -47,7 +47,7 @@ server.post('/createUserGestao', async (request: any, response: any) => {
     //                                               , ${body.password}
     //                                              )`
 
-    const create = await prisma.usuarios.create({
+    const create = await prisma.user.create({
         data: {
             email: body.email,
             name: body.name,
