@@ -24,7 +24,7 @@ server.post('/createUserGestao', async (request: any, response: any) => {
         select: {email: true}
     })
 
-    console.log(body);
+    console.log(body)
 
     console.log(userExisting);
 
