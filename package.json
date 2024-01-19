@@ -8,8 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "tsx watch src/server.ts",
-    "build": "tsc",
-    "postinstall": "prisma generate"
+    "build": "npx prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
