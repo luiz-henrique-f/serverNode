@@ -42,15 +42,15 @@ server.post('/createUserGestao', async (request: any, response: any) => {
     //                                               , ${body.password}
     //                                              )`
 
-    // const create = await prisma.user.create({
-    //     data: {
-    //         email: body.email,
-    //         name: body.name,
-    //         password: body.password,
-    //     }
-    // })
+    const create = await prisma.user.create({
+        data: {
+            email: body.email,
+            name: body.name,
+            password: body.password,
+        }
+    })
 
-    return response.code(201).header('Content-Type', 'application/json; charset=utf-8').send(body)
+    return response.code(201).header('Content-Type', 'application/json; charset=utf-8').send(create)
 });
 
 server.get('/loginGestao/:username', async (request: any, reply: any) => {
