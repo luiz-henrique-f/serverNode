@@ -24,9 +24,15 @@ server.post('/createUserGestao', async (request: any, response: any) => {
         select: {email: true}
     })
 
+    console.log(body);
+
+    console.log(userExisting);
+
     if (userExisting) {
         return response.code(409).header('Content-Type', 'application/json; charset=utf-8').send({ message: 'User already exists.' })
     }
+
+    
 
     // const create = await prisma.$queryRaw`INSERT INTO "public"."User"
     //                                              (
